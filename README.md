@@ -40,12 +40,12 @@
 <ul>
    <li>Register or log in to get a JWT token.</li>
    <li>Include it in Authorization headers</li>
-   <li>Test Event and Booking routes as user or admin.<li>
+   <li>Test Event and Booking routes as user or admin.</li>
 </ul>
 
 <h3>Registration & Login</h3>
 
-<p>1.To register as a new user provide the information like name, email, password in json format. After successfull registration you will get a token. Use that token to access all the protected routes. The token has an expiration time of 3600 sec. After expiration you have to login.</p>
+<p>1. To register as a new user provide the information like name, email, password in json format. After successfull registration you will get a token. Use that token to access all the protected routes. The token has an expiration time of 3600 sec. After expiration you have to login.</p>
 
 <p>2. To login provide email, password in json format. After successful login you will get a token. Use that token to access all the protected routes.</p>
 
