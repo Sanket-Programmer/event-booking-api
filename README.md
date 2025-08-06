@@ -6,13 +6,12 @@
    <li>Secure authentication and authorization using JSON Web Tokens (JWT).</li>
 </ul>
 
-<p>Checkout the API here: </p>
+<p>Checkout the API here: https://event-booking-api-1bim.onrender.com </p>
 
 <h3>Let's Get Started !!!!</h3>
 
-<p>1. Clone the repository from github install all the dependencies by using npm install</p>
-<p>2. Create a .env file in the root directory and add MONGO_URI=mongodb://localhost:27017/eventbooking & JWT_SECRET=your_jwt_secret. Replace your_jwt_secret with a secure random string.</p>
-<p>3. Open the terminal and start the server using node index.js. Server runs on https://localhost:3000</p>
+<p>1. Open Postman and copy the API link. With a GET method run the link. You should see "Welcome to Event Booking API"</p>
+<p>2. Follow the api routes provided below to test the api</p>
 
 <h3>API Endpoints</h3>
 <p>Auth Routes</p>
@@ -44,4 +43,10 @@
    <li>Test Event and Booking routes as user or admin.<li>
 </ul>
 
-<p>Note: By default, all users are created with the user role. To make a user an admin, update their role manually by adding role field in the json while registering.</p>
+<h3>Registration & Login</h3>
+
+<p>1.To register as a new user provide the information like name, email, password in json format. After successfull registration you will get a token. Use that token to access all the protected routes. The token has an expiration time of 3600 sec. After expiration you have to login.</p>
+
+<p>2. To login provide email, password in json format. After successful login you will get a token. Use that token to access all the protected routes.</p>
+
+<p>Note: By default, all users are created with the user role. To make a user an admin, update their role manually by adding "role" field in the json after "password" field while registering.</p>
