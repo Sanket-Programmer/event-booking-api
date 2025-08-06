@@ -20,7 +20,7 @@
    <li>POST - /api/auth/login - Login and get token</li>
 </ul>
 
-<p>Event Routes (Requires Authorization: Bearer <token> )</p>
+<p>Event Routes (Requires Authorization: Bearer [token] )</p>
 <ul>
    <li>GET - /api/events - list all events - for all users</li>
    <li>POST - /api/events - create new event - admin only</li>
@@ -28,7 +28,7 @@
    <li>POST - /api/events/:id - delete an event - admin only</li>
 </ul>
 
-<p>Bookings Routes (Requires Authorization: Bearer <token> )</p>
+<p>Bookings Routes (Requires Authorization: Bearer [token] )</p>
 <ul>
    <li>GET - /api/bookings - get user bookings</li>
    <li>POST - /api/bookings/:eventId - book an event</li>
