@@ -1,52 +1,108 @@
-<h2>Event Booking API</h2>
-<p>A RESTful API built with Express.js, MongoDB, and JWT that allows:</p>
-<ul>
-   <li>Users to register, log in, and book events.</li>
-   <li>Admins to manage events.</li>
-   <li>Secure authentication and authorization using JSON Web Tokens (JWT).</li>
-</ul>
+# Event Booking System API
 
-<p>Checkout the API here: https://event-booking-api-1bim.onrender.com </p>
+A RESTful API for managing users, events, and bookings using **Node.js**, **Express**, **MongoDB**, and **JWT** authentication.
+
+---
+
+## Features
+
+- **User Authentication** (Register, Login) with JWT  
+- **Admin Event Management** (Add, Update, Delete events)  
+- **Event Booking** (View, Book, Cancel)  
+- **Role-based Access Control** (User / Admin)  
+- **MongoDB Storage** for users, events, and bookings  
+- **Validation & Error Handling**  
+
+---
+
+<p>Checkout the API here: https://event-booking-api-1bim.onrender.com</p>
 
 <h3>Let's Get Started !!!!</h3>
 
 <p>1. Open Postman and copy the API link. With a GET method run the link. You should see "Welcome to Event Booking API"</p>
-<p>2. Follow the api routes provided below to test the api</p>
+<p>2. Follow the api endpoints provided below to test the api</p>
 
-<h3>API Endpoints</h3>
-<p>Auth Routes</p>
-<ul>
-   <li>POST - /api/auth/register - Register a new user and get token</li>
-   <li>POST - /api/auth/login - Login and get token</li>
-</ul>
+## API Endpoints
 
-<p>Event Routes (Requires Authorization: Bearer [token] )</p>
-<ul>
-   <li>GET - /api/events - list all events - for all users</li>
-   <li>POST - /api/events - create new event - admin only</li>
-   <li>PUT - /api/events/:id - update an event - admin only</li>
-   <li>POST - /api/events/:id - delete an event - admin only</li>
-</ul>
+### **Auth Routes**
+| Method | Endpoint       | Description         
+|--------|---------------|--------------------|
+| POST   | `/api/auth/register` | Register and get token |
+| POST   | `/api/auth/login`    | Login and get token | 
 
-<p>Bookings Routes (Requires Authorization: Bearer [token] )</p>
-<ul>
-   <li>GET - /api/bookings - get user bookings</li>
-   <li>POST - /api/bookings/:eventId - book an event</li>
-   <li>DELETE - /api/bookings/:bookingId - cancel a booking</li>
-</ul>
+---
 
-<h3>Testing</h3>
-<p>Use Postman or any other REST client</p>
-<ul>
-   <li>Register or log in to get a JWT token.</li>
-   <li>Include it in Authorization headers</li>
-   <li>Test Event and Booking routes as user or admin.</li>
-</ul>
+### **Event Routes**
+| Method | Endpoint         | Description             | Auth Required | Role |
+|--------|-----------------|------------------------|--------------|------|
+| GET    | `/api/events`   | View all events         | ✅ | Any |
+| POST   | `/api/events`   | Add event               | ✅ | Admin |
+| PUT    | `/api/events/:id` | Update event           | ✅ | Admin |
+| DELETE | `/api/events/:id` | Delete event           | ✅ | Admin |
 
-<h3>Registration & Login</h3>
+---
 
-<p>1. To register as a new user provide the information like name, email, password in json format. After successfull registration you will get a token. Use that token to access all the protected routes. The token has an expiration time of 3600 sec. After expiration you have to login.</p>
+### **Booking Routes**
+| Method | Endpoint              | Description             | Auth Required | Role |
+|--------|----------------------|------------------------|--------------|------|
+| POST   | `/api/bookings/:eventId`  | Book an event           | ✅ | User |
+| DELETE | `/api/bookings/:bookingId`  | Cancel booking          | ✅ | User |
 
-<p>2. To login provide email, password in json format. After successful login you will get a token. Use that token to access all the protected routes.</p>
+---
 
-<p>Note: By default, all users are created with the user role. To make a user an admin, update their role manually by adding "role" field in the json after "password" field while registering.</p>
+## 🔒 Authentication
+
+- All protected routes require a **JWT token** in the `Authorization` header:
+```
+Authorization: Bearer <your_token_here>
+```
+- Tokens are provided during login and registering a new user.
+
+---
+
+## 📝 Example Request: Register User
+```bash
+POST /api/auth/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "123456"
+}
+```
+
+**Response:**
+```json
+{
+  "message": "Registered Successfully !!!",
+  "token": "your_jwt_token"
+}
+```
+
+---
+
+## 📝 Example Request: Login
+```bash
+POST /api/auth/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "123456"
+}
+```
+
+**Response:**
+```json
+{
+  "message": "Logged In Successfully !!!",
+  "token": "your_jwt_token"
+}
+```
+
+---
+
+## 📌 Notes
+- By default, all users are created with the `"user"` role. To make a user an admin, update their role manually by adding `"role"` field in the json after `"password"` field while registering.
+- The token has an expiration time of 3600 sec.
