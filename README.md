@@ -50,7 +50,7 @@ A RESTful API for managing users, events, and bookings using **Node.js**, **Expr
 
 ---
 
-## 🔒 Authentication
+## Authentication
 
 - All protected routes require a **JWT token** in the `Authorization` header:
 ```
@@ -60,7 +60,7 @@ Authorization: Bearer <your_token_here>
 
 ---
 
-## 📝 Example Request: Register User
+## Example Request: Register User
 ```bash
 POST /api/auth/register
 Content-Type: application/json
@@ -82,7 +82,7 @@ Content-Type: application/json
 
 ---
 
-## 📝 Example Request: Login
+## Example Request: Login
 ```bash
 POST /api/auth/login
 Content-Type: application/json
@@ -103,6 +103,6 @@ Content-Type: application/json
 
 ---
 
-## 📌 Notes
+## Notes
 - By default, all users are created with the `"user"` role. To make a user an admin, update their role manually by adding `"role"` field in the json after `"password"` field while registering.
 - The token has an expiration time of 3600 sec.
