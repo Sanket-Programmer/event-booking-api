@@ -104,6 +104,6 @@ Content-Type: application/json
 ---
 
 ## Notes
-- By default, all users are created with the `"user"` role. To make a user an `"admin"`, update their role manually by adding *role* field in the json after *password* field while registering.
+- By default, all users are created with the `"user"` role. To make a user an `"admin"`, update their role manually by adding `"role"` field in the json after `"password"` field while registering.
   
 - The token has an expiration time of 3600 sec.
